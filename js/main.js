@@ -68,8 +68,15 @@ function iniciarJogo() {
     if (direction == "up") snakeY -= box;
     if (direction == "down") snakeY += box;
 
-    //retira o último elemento do array
-    snake.pop();
+    //Quando come a comida ela aumenta de tamanho
+    if (snakeX != food.x || snakeY != food.y) {
+        //retira o último elemento do array
+        snake.pop();
+    }
+    else {
+        food.x = Math.floor(Math.random() * 15 + 1) * box;
+        food.y = Math.floor(Math.random() * 15 + 1) * box
+    }
     //acrescenta elemento a frente
     let newHead = {
         x: snakeX,
