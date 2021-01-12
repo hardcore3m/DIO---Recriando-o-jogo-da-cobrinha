@@ -19,7 +19,7 @@ let food = {
 
 function criarBG() {
     //Preenche com estilo, no caso bg verde
-    context.fillStyle = 'lightgreen';
+    context.fillStyle = 'black';
     //Fillrect - Desenha onde vai acontecer o evento Parâmetros (posição X, posição Y, altura, largura)
     context.fillRect(0, 0, 16 * box, 16 * box);
 }
@@ -28,7 +28,7 @@ function criarBG() {
 function criarCobrinha() {
     //percorre todo o array incrementando
     for (i = 0; i < snake.length; i++) {
-        context.fillStyle = "green";
+        context.fillStyle = "white";
         context.fillRect(snake[i].x, snake[i].y, box, box);
     }
 }
@@ -50,12 +50,23 @@ function update(event) {
 }
 
 function iniciarJogo() {
+
+
     /*Plano Cartesiano faz com que a cobra reapareça do outro lado.
     Quando chega no ponto zero do plano cartesiano ela inicia no 16 e vice-versa*/
     if (snake[0].x > 15 * box && direction == "right") snake[0].x = 0;
     if (snake[0].x < 0 * box && direction == "left") snake[0].x = 15;
     if (snake[0].y > 15 * box && direction == "down") snake[0].y = 0;
     if (snake[0].y < 0 * box && direction == "up") snake[0].y = 15;
+    
+    for (let i = 1; i < snake.length; i++) {
+        if( snake[0].x == snake[i].x && snake[0].y == snake[1].y){
+            clearInterval(jogo);
+            alert('== Game Over! ==')
+        }
+        
+    }
+
     criarBG();
     criarCobrinha();
     drawFood();
