@@ -1,9 +1,5 @@
 # DIO - Recriando jogo da cobrinha
-Descrição do projeto
-
-## Desenvolvimento
-
-## Estapas|Objetivos
+Praticando javascript recriando o jogo da cobrinha. Aprendendo a trabalha com Keydown e plano cartesiano.
 
 ## Rafael Marins
 [GitHub](https://github.com/hardcore3m)  
